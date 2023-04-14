@@ -1,0 +1,547 @@
+
+
+
+
+.janela {
+    width: 1024px;
+    /*altura da minha interface*/
+    height: 768px;
+    /*largura da minha interface*/
+    margin: 0 auto;
+    /*margem da minha interface*/
+    border-radius: 30px;
+    /*bordas gerais da minha interface*/
+    color: white;
+    position: relative;
+    /*posição da minha interface*/
+    background-color: rgb(233, 239, 245);
+    /*fundo da minha interface*/
+    padding: 10px;
+    /*define o preenchimento da minha interface*/
+    box-shadow: 0px 5px 10px 2px rgb(175, 173, 173);
+    border: none;
+    overflow: hidden;
+}
+
+/*altura da minha interface*/
+
+.caixa-texto {
+
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    background-color: #cfcbcb;
+    border-radius: 20px;
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    box-shadow: 0px 0px 5px 1px rgb(163, 163, 163);
+
+
+}
+
+.caixa-texto input {
+    background-color: #cfcbcb;
+    border: none;
+    border-radius: 20px;
+    padding: 8px;
+    width: 200px;
+    margin-right: 10px;
+    outline: none;
+}
+
+.caixa-texto button {
+
+    background-color: #0e004d;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 5px;
+    align-items: center;
+    transition: background-color 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #190086;
+}
+
+.icone-opcoes {
+    position: absolute;
+    top: 20px;
+    width: 30px;
+    height: 30px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    z-index: 2;
+
+}
+
+.icone-opcoes::before,
+.icone-opcoes::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    background-color: black;
+    border-radius: 4px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.icone-opcoes::before {
+    top: 8px;
+}
+
+.icone-opcoes::after {
+    top: 18px;
+}
+
+.icone-opcoes:hover::before {
+    transform: translateY(5px) rotate(45deg);
+}
+
+.icone-opcoes:hover::after {
+    transform: translateY(-5px) rotate(-45deg);
+}
+
+.icone-opcoes.abrir::before,
+.icone-opcoes.abrir::after {
+    display: none;
+    transition: all 0.3s ease-in-out;
+}
+
+
+.menu {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 240px;
+    height: 100%;
+    background-color: #f0f0f0;
+    color: #000000;
+    z-index: 1;
+    transform: translateX(-240px);
+    transition: transform 0.3s ease-in-out;
+    overflow-y: auto;
+    box-shadow: 0px 0px 2px 2px rgb(175, 173, 173);
+    pointer-events: auto;
+
+}
+
+.menu.open {
+    transform: translateX(0);
+}
+
+.menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 1;
+}
+
+.menu li {
+    margin-bottom: 5px;
+}
+
+.menu a {
+    font-family: 'Roboto', sans-serif;
+    display: block;
+    color: #000;
+    text-decoration: none;
+    padding: 5px;
+    border-radius: 10px;
+    transition: all 0.3s ease-in-out;
+}
+
+
+.menu a:hover {
+    background-color: #cfcece;
+    color: #fff;
+
+}
+
+.janela-perfil {
+
+    background-color: #dcdef7;
+    color: #fff;
+    width: 100%;
+    height: 16%;
+}
+
+.perfil {
+    text-align: left;
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+}
+
+.perfil img {
+    border-radius: 60%;
+    margin-right: 10px;
+    width: 80px;
+    height: 80px;
+    box-shadow: 0px 0px 5px rgba(129, 127, 127, 90);
+    float: left;
+    margin-top: auto;
+    box-shadow: 0px 0px 2px 2px rgb(175, 173, 173);
+
+}
+
+.dados {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.nome-sobrenome {
+    display: flex;
+    justify-content: flex-end;
+}
+
+
+.nome {
+    font-family: Roboto, sans-serif;
+    margin-top: 2px;
+    font-size: 18px;
+    display: inline-block;
+    margin-right: 2px;
+    color: #000000;
+}
+
+.sobrenome {
+    font-family: Roboto, sans-serif;
+    margin-top: 2px;
+    font-size: 18px;
+    display: inline-block;
+    color: #000000;
+
+}
+
+.id {
+    font-family: Roboto, sans-serif;
+    margin-top: 5px;
+    font-size: 11px;
+    color: #000000;
+
+}
+
+.cria-documento {
+    position: absolute;
+    bottom: 150px;
+    right: 50%;
+    width: 150px;
+    height: 100px;
+    background-color: #e4e3e3;
+    border-radius: 30px;
+    box-shadow: 0px 0px 5px 1px rgb(163, 163, 163);
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease-in-out;
+    box-shadow: 0px 0px 2px 2px rgb(175, 173, 173);
+
+
+}
+
+.cria-documento h3 {
+    margin-top: 10px;
+    font-size: 12px;
+    font-weight: bold;
+    text-align: center;
+    font-family: Roboto, sans-serif;
+    display: inline-block;
+    color: #000000;
+
+}
+
+
+.escolhas {
+
+    display: flex;
+    align-items: center;
+    margin-top: -10px;
+    position: relative;
+    left: 10px;
+
+}
+
+.escolhas li {
+    margin-bottom: 0;
+}
+
+.escolhas ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.escolhas a {
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    padding: 5px;
+    margin-top: 10px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    color: #000;
+    background-color: #b9b9b9;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.escolhas a:hover {
+    background-color: #eee;
+}
+
+.pagina-processamento {
+    width: 800px;
+    /*altura da minha interface*/
+    height: 640px;
+    /*largura da minha interface*/
+    margin: 0 auto;
+    /*margem da minha interface*/
+    border-radius: 30px;
+    /*bordas gerais da minha interface*/
+    color: white;
+    position: relative;
+    /*posição da minha interface*/
+    background-color: rgb(233, 239, 245);
+    /*fundo da minha interface*/
+
+    /*define o preenchimento da minha interface*/
+    box-shadow: 0px 5px 10px 2px rgb(175, 173, 173);
+    border: none;
+    overflow: hidden;
+    display: none;
+    transition: all 1 ease-in-out;
+
+}
+
+
+.pagina-processamento.aba-1 {
+    display: block;
+
+}
+
+.barra-indicativa {
+    display: flex;
+    width: 150%px;
+    height: 40px;
+    border-radius: 0px;
+    background-color: #9b9b9b;
+    color: white;
+    justify-content: center;
+    position: relative;
+    padding: 10px;
+
+}
+
+.barra-indicativa h3 {
+
+    font-family: Roboto, sans-serif;
+    font-size: 18px;
+    margin-top: 10px;
+    color: #ffffff;
+    position: relative;
+    text-align: center;
+
+}
+
+.pagina-atualizacao {
+    width: 800px;
+    /*altura da minha interface*/
+    height: 640px;
+    /*largura da minha interface*/
+    margin: 0 auto;
+    /*margem da minha interface*/
+    border-radius: 30px;
+    /*bordas gerais da minha interface*/
+    color: white;
+    position: relative;
+    /*posição da minha interface*/
+    background-color: rgb(233, 239, 245);
+    /*fundo da minha interface*/
+
+    /*define o preenchimento da minha interface*/
+    box-shadow: 0px 5px 10px 2px rgb(175, 173, 173);
+    border: none;
+    overflow: hidden;
+    display: none;
+    transition: all 1 ease-in-out;
+}
+
+
+.pagina-atualizacao.aba-2 {
+    display: block;
+}
+
+.pagina-autorizacao {
+    width: 800px;
+    /*altura da minha interface*/
+    height: 640px;
+    /*largura da minha interface*/
+    margin: 0 auto;
+    /*margem da minha interface*/
+    border-radius: 30px;
+    /*bordas gerais da minha interface*/
+    color: white;
+    position: relative;
+    /*posição da minha interface*/
+    background-color: rgb(233, 239, 245);
+    /*fundo da minha interface*/
+
+    /*define o preenchimento da minha interface*/
+    box-shadow: 0px 5px 10px 2px rgb(175, 173, 173);
+    border: none;
+    overflow: hidden;
+    display: none;
+    transition: all 1 ease-in-out;
+}
+
+
+.pagina-autorizacao.aba-3 {
+    display: block;
+}
+
+.pagina-setor {
+    width: 800px;
+    /*altura da minha interface*/
+    height: 640px;
+    /*largura da minha interface*/
+    margin: 0 auto;
+    /*margem da minha interface*/
+    border-radius: 30px;
+    /*bordas gerais da minha interface*/
+    color: white;
+    position: relative;
+    /*posição da minha interface*/
+    background-color: rgb(233, 239, 245);
+    /*fundo da minha interface*/
+
+    /*define o preenchimento da minha interface*/
+    box-shadow: 0px 5px 10px 2px rgb(175, 173, 173);
+    border: none;
+    overflow: hidden;
+    display: none;
+    transition: all 1 ease-in-out;
+}
+
+
+.pagina-setor.aba-4 {
+    display: block;
+}
+
+
+.fechar {
+    background-color: transparent;
+    color: rgb(0, 0, 0);
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    position: absolute;
+    top: 10px;
+    right: 30px;
+    outline: none;
+}
+
+.minimizar {
+    background-color: transparent;
+    color: rgb(0, 0, 0);
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    position: absolute;
+    top: 10px;
+    right: 90px;
+    outline: none;
+}
+
+.fechar:hover,
+.minimizar:hover {
+    background-color: transparent;
+    /* cor de fundo ao passar o mouse */
+    color: #ffffff;
+    /* cor do texto ao passar o mouse */
+    border: none;
+}
+
+
+.guarda-pdf {
+
+    display: flex;
+    flex-wrap: wrap;
+
+}
+
+.pdf {
+
+
+    width: 250px;
+    height: 300px;
+    border: 1px solid #ccc;
+    display: inline-block;
+    border-radius: 30px;
+    background-color: white;
+    transform: scale(0.7) translate(50px, -20px);
+    overflow: hidden;
+
+
+
+}
+
+.pdf a {
+
+
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
+
+
+.pdf img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+
+}
+
+.pdf:hover {
+    box-shadow: 0px 5px 10px 2px rgb(175, 173, 173);
+
+
+}
+
+.pdf-list {
+    background-color: #f5f5f5;
+    padding: 20px;
+}
+
+.pdf-list h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.pdf-list ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.pdf-list li {
+    margin-bottom: 10px;
+}
+
+.pdf-list a {
+    color: #333;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.pdf-list a:hover {
+    color: #555;
+}
