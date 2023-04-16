@@ -51,12 +51,6 @@ header {
 }
 
 
-.imagem {
-
-  width: 100%;
-
-
-}
 
 .imagem img {
   width: 100%;
@@ -82,7 +76,6 @@ header {
 }
 
 .chat-container {
-  display: block;
   position: absolute;
   top: 55%;
   right: 0;
@@ -90,13 +83,12 @@ header {
   display: flex;
   flex-direction: column-reverse;
   align-items: flex-start;
-  width: 50%;
+  width: 500px;
   height: 400px;
   padding: 10px;
   background-color: #dbdada;
   border-radius: 10px;
-  overflow: auto;
-  padding: 10px;
+
 }
 
 .chat-container::-webkit-scrollbar {
@@ -186,15 +178,6 @@ header {
   font-size: 0.8em;
   align-self: flex-end;
 
-}
-
-.option.selecionado {
-  background-color: #ccc;
-}
-
-.tipo-documento label {
-  display: block;
-  margin-bottom: 8px;
 }
 
 .tipo-documento select {
