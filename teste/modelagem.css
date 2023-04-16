@@ -21,6 +21,7 @@ header {
 .logo img {
   width: 80px;
   height: 40px;
+
 }
 
 .lista {
@@ -77,41 +78,30 @@ header {
 
 .chat-container {
   position: absolute;
-  top: 55%;
+  top: 52%;
   right: 0;
   transform: translate(-10%, -50%);
   display: flex;
   flex-direction: column-reverse;
   align-items: flex-start;
-  width: 500px;
-  height: 400px;
+  width: 50%;
+  height: 80%;
   padding: 10px;
   background-color: #dbdada;
   border-radius: 10px;
 
 }
 
-.chat-container::-webkit-scrollbar {
-  width: 8px;
-  background-color: #F5F5F5;
-}
-
-.chat-container::-webkit-scrollbar-thumb {
-  border-radius: 10px;
-  background-color: rgba(0, 0, 0, .2);
-}
-
-
 .chat-input {
   width: 80%;
   margin: 0 auto;
   display: flex;
-  margin-top: 80px;
+  margin-top: 15%;
+
 }
 
 .chat-input input {
   flex-grow: 1;
-  padding: 10px;
   border: none;
   border-radius: 10px;
   outline: none;
@@ -119,13 +109,12 @@ header {
 }
 
 .chat-input button {
-  padding: 10px;
+  padding: 2%;
   background-color: #007bff;
   color: #fff;
   border: none;
   border-radius: 10px;
   cursor: pointer;
-  margin-bottom: 10px;
 }
 
 .chat-input button.clicked {
@@ -140,19 +129,17 @@ header {
 
 .mensagem {
   max-width: 80%;
-  margin-bottom: 10px;
   border-radius: 10px;
   word-break: break-word;
 }
 
 .mensagem-enviada {
-  align-self: flex-end;
-  background-color: rgb(2, 2, 87);
   display: flex;
+  align-self: flex-end;
+  background-color: rgb(3, 3, 138);
   flex-direction: row-reverse;
-  max-width: 30%;
-  margin-bottom: 10px;
-  padding: 10px;
+  margin-bottom: 2%;
+  padding: 1%;
   border-radius: 10px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   color: white;
@@ -162,29 +149,59 @@ header {
 
 .mensagem-recebida {
   display: block;
-  max-width: 35%;
+  width: 30%;
+  height: 25%;
   margin-bottom: -60px;
-  padding: 20px;
+  padding: 2%;
   border-radius: 10px;
   background-color: #fff;
-  background-color: rgb(2, 2, 87);
-  color: white;
+  background-color: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
+  font-family: 'Lato', sans-serif;
+  align-self: flex-start;
+  position: relative;
+  
+}
+.mensagem-recebida-resposta {
+  display: flex;
+  width: 30%;
+  height: 25%;
+  margin-bottom: 60px;
+  padding: 2%;
+  border-radius: 10px;
+  background-color: #fff;
+  background-color: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
+  flex-direction: row-reverse;
+  margin-bottom: 2%;
+  padding: 1%;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   font-family: 'Lato', sans-serif;
 }
 
 
-.mensagem-hora {
+.mensagem-hora-enviada{
   margin-left: 10px;
   font-size: 0.8em;
   align-self: flex-end;
+}
 
+.mensagem-hora-recebida{
+  position: absolute;
+  bottom: 1px;
+  right: 10px;
+  font-size: 0.8em;
 }
 
 .tipo-documento select {
   display: block;
   width: 100%;
-  padding: 8px;
+  padding: 4px;
   border-radius: 4px;
-  border: 1px solid #ccc;
-  background-color: #fff;
+  border: none;
+  background-color: transparent;
+  color: rgb(0, 0, 0);
+  outline: none;
+  
 }
