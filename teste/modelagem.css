@@ -90,16 +90,17 @@ header {
   background-color: #dbdada;
   border-radius: 10px;
   overflow-y: scroll;
- 
+
  
 
 }
+
 
 .chat-input {
   width: 80%;
   margin: 0 auto;
   display: flex;
-  margin-top: 15%;
+  margin-top: 10%;
 
 }
 
@@ -130,11 +131,12 @@ header {
 }
 
 
+
+
 .mensagem {
  
   border-radius: 10px;
   word-break: break-word;
-  display: block;
 }
 
 .mensagem-enviada {
@@ -156,7 +158,7 @@ header {
 
 .mensagem-recebida {
   display: flex;
-  width: 40%;
+  width: 60%;
   max-height: 50px;
   margin-bottom: 10px;
   padding: 8px;
@@ -167,8 +169,8 @@ header {
   font-family: 'Lato', sans-serif;
   align-self: flex-start;
   position: relative;
-  top: 40px;
   flex-direction: column;
+  
 }
 
 
@@ -184,6 +186,56 @@ header {
   right: 10px;
   font-size: 0.8em;
 }
+
+.mensagem-inicial {
+  display: flex;
+  width: 70%;
+  max-height: 100px;
+  padding: 8px;
+  border-radius: 10px;
+  background-color: #fff;
+  background-color: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
+  font-family: 'Lato', sans-serif;
+  align-self: flex-start;
+  position: relative;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  margin-bottom: 10px;
+}
+
+.mensagem-inicial .mensagem-hora-recebida {
+  font-size: 12px;
+  color: #999;
+  margin-bottom: 5px;
+}
+
+.mensagem-inicial .mensagem-texto {
+  font-size: 14px;
+  margin-bottom: 15px;
+  top: 20px;
+  font-family: 'Lato', sans-serif;
+
+}
+
+.mensagem-inicial .opcao-selecionada {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.mensagem-inicial select {
+  width: 100%;
+  height: 30px;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #fff;
+  font-size: 14px;
+  font-weight: bold;
+  color: #333;
+}
+
 
 
 
