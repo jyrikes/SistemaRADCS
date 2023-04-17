@@ -1,0 +1,132 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<title>Relatório Financeiro</title>
+	<!-- Adicione links para as bibliotecas dos gráficos e tabelas aqui -->
+	<style>
+		body {
+			background-color: #f2f2f2;
+			color: #333;
+			font-family: Arial, sans-serif;
+			margin: 0;
+			padding: 0;
+		}
+		#menu {
+			background-color: #3366cc;
+			color: #fff;
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			padding: 10px;
+		}
+		#menu h1 {
+			margin: 0;
+		}
+		#menu a {
+			color: #fff;
+			text-decoration: none;
+		}
+		#menu a i {
+			margin-right: 5px;
+		}
+		.container {
+			max-width: 1200px;
+			margin: 0 auto;
+			padding: 20px;
+		}
+		.chart {
+			height: 400px;
+			margin-bottom: 20px;
+      align-self: center;
+      padding-left: 20px;
+		}
+		table {
+			border-collapse: collapse;
+			width: 100%;
+			margin-bottom: 20px;
+			background-color: #fff;
+			color: #333;
+			border: 1px solid #ddd;
+		}
+		th, td {
+			text-align: left;
+			padding: 8px;
+			border: 1px solid #ddd;
+		}
+		th {
+			background-color: #3366cc;
+			color: #fff;
+		}
+	</style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+</head>
+<body>
+	<div id="menu">
+		<h1>Relatório Financeiro</h1>
+		<a href="#" onclick="window.history.back();"><i class="fa fa-arrow-left"></i></a>
+	</div>
+	<div class="container">
+		<h2>Gráfico Financeiro</h2>
+		<div class="chart">
+			<canvas id="graficoBarras"></canvas>
+		</div>
+		<h2>Tabela de vendas</h2>
+		<table>
+			<thead>
+				<tr>
+					<th>Produto</th>
+					<th>Vendas</th>
+					<th>Receita</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>Produto A</td>
+					<td>100</td>
+					<td>R$ 10.000,00</td>
+				</tr>
+				<tr>
+					<td>Produto B</td>
+					<td>50</td>
+					<td>R$ 5.000,00</td>
+				</tr>
+				<tr>
+					<td>Produto C</td>
+					<td>75</td>
+					<td>R$ 7.500,00</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+  const ctx = document.getElementById('graficoBarras').getContext('2d');
+  const myChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho'],
+      datasets: [{
+        label: 'Receitas',
+        data: [1200, 1500, 2000, 1800, 2200, 2500],
+        backgroundColor: 'rgba(54, 162, 235, 0.5)',
+        borderColor: 'rgba(54, 162, 235, 1)',
+        borderWidth: 1
+      }, {
+        label: 'Despesas',
+        data: [800, 900, 1200, 1000, 1300, 1500],
+        backgroundColor: 'rgba(255, 99, 132, 0.5)',
+        borderColor: 'rgba(255, 99, 132, 1)',
+        borderWidth: 1
+      }]
+    },
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true
+        }
+      }
+    }
+  });
+</script>
+</html>

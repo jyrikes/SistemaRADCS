@@ -46,9 +46,12 @@ header {
 
 
 }
+a {
+  text-decoration: none;
+}
 
-.lista li:hover {
-  color: rgb(2, 2, 87);
+.lista li:hover a{
+  color: rgb(2, 2, 87)!important;
 }
 
 
@@ -82,7 +85,7 @@ header {
   right: 0;
   transform: translate(-10%, -50%);
   display: flex;
-  flex-direction: column-reverse;
+  flex-direction:column-reverse;
   align-items: flex-start;
   width: 50%;
   height: 80%;
@@ -111,8 +114,18 @@ header {
   outline: none;
 
 }
+.botaoGerarPDF button{
+  padding: 2%;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: larger;
 
-.chat-input button {
+}
+
+.chat-input button  {
   padding: 2%;
   background-color: #007bff;
   color: #fff;
@@ -141,6 +154,8 @@ header {
 
 .mensagem-enviada {
   display: flex;
+  flex-direction: column-reverse;
+  display: flex;
   align-self: flex-end;
   background-color: rgb(3, 3, 138);
   flex-direction: row-reverse;
@@ -160,7 +175,7 @@ header {
   display: flex;
   width: 60%;
   max-height: 50px;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
   padding: 8px;
   border-radius: 10px;
   background-color: #fff;
@@ -169,8 +184,22 @@ header {
   font-family: 'Lato', sans-serif;
   align-self: flex-start;
   position: relative;
-  flex-direction: column;
+  flex-direction:row;
   
+}
+.botaoGerado{
+  display: flex;
+  flex-direction: column;
+}
+
+.botaoGerado button{
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 5px;
+  font-size: medium;
 }
 
 
@@ -185,7 +214,9 @@ header {
   bottom: 1px;
   right: 10px;
   font-size: 0.8em;
-}
+  padding-top: 10px;
+  padding-left: 20px;
+ }
 
 .mensagem-inicial {
   display: flex;
@@ -205,9 +236,9 @@ header {
 }
 
 .mensagem-inicial .mensagem-hora-recebida {
-  font-size: 12px;
+  font-size: 10px;
   color: #999;
-  margin-bottom: 5px;
+  margin-bottom: 10px;
 }
 
 .mensagem-inicial .mensagem-texto {
@@ -215,8 +246,10 @@ header {
   margin-bottom: 15px;
   top: 20px;
   font-family: 'Lato', sans-serif;
+  
 
 }
+
 
 .mensagem-inicial .opcao-selecionada {
   display: flex;
@@ -235,6 +268,7 @@ header {
   font-weight: bold;
   color: #333;
 }
+
 
 
 

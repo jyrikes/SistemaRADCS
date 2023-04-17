@@ -1,0 +1,190 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Solicitações</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      margin-top: 10px;
+      padding-bottom: 10px;
+      padding-top: 10px;
+    }
+
+    header {
+      background-color: #3498db;
+      color: white;
+      padding: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+   .bt {
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 10px;
+      padding: 15px 20px;
+      text-align: center;
+      font-size: 16px;
+      display: inline-block;
+      vertical-align: middle;
+      transition: all 0.3s ease;
+      float: right;
+    }
+    
+    .bt:hover {
+      background-color: #0056b3;
+    }
+    
+    .bt-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      margin-right: 10px;
+      border-radius: 50%;
+      background-color: #fff;
+      color: #007bff;
+      transition: all 0.3s ease;
+    }
+    
+    .bt-icon:hover {
+      background-color: #007bff;
+      color: #fff;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 36px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 30px;
+    }
+
+    th,
+    td {
+      padding: 15px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+    }
+
+    th {
+      background-color: #f2f2f2;
+      font-weight: normal;
+      font-size: 18px;
+      color: #555;
+    }
+
+    .solicitacao {
+      background-color: #3498db;
+      color: white;
+      border: none;
+      padding: 10px;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-left: 10px;
+    }
+
+    .solicitacao:hover {
+      background-color: #2980b9;
+    }
+
+    .descricao {
+      display: none;
+      margin-top: 10px;
+      padding: 10px;
+      border: 1px solid #3498db;
+      border-radius: 5px;
+      font-size: 16px;
+      color: #555;
+    }
+
+    .informacoes {
+      font-size: 16px;
+      color: #555;
+    }
+
+    .urgencia-alta {
+      background-color: #e74c3c;
+      color: white;
+      padding: 5px 10px;
+      border-radius: 5px;
+    }
+
+    .urgencia-baixa {
+      background-color: #2ecc71;
+      color: white;
+      padding: 5px 10px;
+      border-radius: 5px;
+    }
+  </style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+
+</head>
+
+<body>
+
+  <header>
+    <h1>Solicitações</h1>
+    <a href="#" class="bt" onclick=inicial()><i class="fas fa-arrow-left"></i> </a>
+  </header>
+  
+  
+  
+  <table>
+    <thead>
+      <tr>
+        <th>Solicitação</th>
+        <th>Informações</th>
+        <th>Solicitante</th>
+        <th>Data</th>
+        <th>Estado</th>
+        <th>Urgência</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+      
+      <tr>
+        <td>
+          <button class="solicitacao" onclick="toggleDescricao(2)">Analisar</button>
+          <div class="descricao" id="descricao2">
+            <p>Descrição da solicitação 2</p>
+          </div>
+        </td>
+        <td>Informações adicionais sobre a solicitação 2</td>
+        <td>Maria</td>
+        <td>16/04/2023</td>
+        <td><span id="situacao">A fazer</span></td>
+        <td>Baixa</td>
+      </tr>
+    </tbody>
+
+  </table>
+  <script>
+    const botoes = document.querySelectorAll('.solicitacao-btn');
+    function toggleDescricao(id) {
+      var descricao = document.getElementById("descricao" + id);
+      if (descricao.style.display === "none") {
+        descricao.style.display = "block";
+      } else {
+        descricao.style.display = "none";
+      }
+    }
+    function inicial(){
+      window.location.href = "index.html";
+    }
+  </script>
+</body>
+
+</html>

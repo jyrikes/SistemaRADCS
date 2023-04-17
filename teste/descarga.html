@@ -1,0 +1,221 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+  <title>Autorização de Descarga de Material</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    /* Estilos CSS para a página */
+    body {
+      font-family: Arial, sans-serif;
+      font-size: 16px;
+      line-height: 1.5;
+      text-align: center;
+      padding-left: 5%;
+      padding-right: 5%;
+    }
+    .navbar {
+      background-color: #007bff;
+      overflow: hidden;
+      margin-bottom: 50px;
+    }
+    .navbar a {
+      float: left;
+      display: block;
+      color: #fff;
+      text-align: center;
+      padding: 15px;
+      text-decoration: none;
+      font-size: 16px;
+      transition: all 0.3s ease;
+    }
+    .navbar a:hover {
+      background-color: #0056b3;
+    }
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      font-weight: bold;
+      margin: 0;
+      padding: 0;
+    }
+    h1 {
+      font-size: 32px;
+      margin-bottom: 10px;
+    }
+    h2 {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+    h3 {
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+    p {
+      margin: 0;
+      padding: 0;
+    }
+    table {
+      border-collapse: collapse;
+      width: 100%;
+    }
+    table th,
+    table td {
+      border: 1px solid #ddd;
+      padding: 10px;
+      text-align: left;
+      vertical-align: top;
+    }
+    table th {
+      background-color: #f2f2f2;
+    }
+    .campo-assinatura {
+      border: none;
+    }
+    .assinatura p:first-child {
+      font-style: italic;
+    }
+  </style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+</head>
+<body>
+  <nav class="navbar">
+    <a href="#" onclick="window.history.back();"><i class="fas fa-arrow-left"></i></a>
+   
+    <a href="#" onclick="autorizar()">Autorizar</a>
+    <a href="#" onclick="reavalizar()">Reavaliar</a>
+    <a href="#" onclick="negar()">Negar</a>
+  </nav>
+  <div class="container">
+  <header>
+    <h1>Autorização de Descarga de Material</h1>
+    <p>Número da Autorização: 123456789</p>
+    <p>Data e Hora: 16/04/2023 14:30</p>
+  </header>
+
+  <section>
+    <h2>Informações do Remetente</h2>
+    <table>
+      <tr>
+        <th>Empresa:</th>
+        <td>Indústria XYZ Ltda.</td>
+      </tr>
+      <tr>
+        <th>Endereço:</th>
+        <td>Rua das Indústrias, 123 - CEP: 12345-678</td>
+      </tr>
+      <tr>
+        <th>Telefone:</th>
+        <td>(11) 1234-5678</td>
+      </tr>
+      <tr>
+        <th>CNPJ:</th>
+        <td>12.345.678/0001-90</td>
+      </tr>
+    </table>
+  </section>
+
+  <section>
+    <h2>Informações do Transportador</h2>
+    <table>
+    <tr>
+    <th>Empresa:</th>
+    <td>Transportadora ABC Ltda.</td>
+    </tr>
+    <tr>
+    <th>Endereço:</th>
+    <td>Rua dos Transportes, 456 - CEP: 98765-432</td>
+    </tr>
+    <tr>
+    <th>Telefone:</th>
+    <td>(11) 9876-5432</td>
+    </tr>
+    <tr>
+    <th>CNPJ:</th>
+    <td>98.765.432/0001-21</td>
+    </tr>
+    </table>
+    
+      </section>
+      <section>
+        <h2>Informações do Material Transportado</h2>
+        <table>
+          <tr>
+            <th>Descrição:</th>
+            <td>Peças de metal</td>
+          </tr>
+          <tr>
+            <th>Quantidade:</th>
+            <td>500</td>
+          </tr>
+          <tr>
+            <th>Responsável pela operação:</th>
+            <td>João da Silva</td>
+          </tr>
+        </table>
+      </section>
+      <section>
+        <h2>Autorização de Descarga</h2>
+        <p>Eu, abaixo-assinado, autorizo a descarga do material acima descrito pela Transportadora ABC Ltda. na data de hoje.</p>
+        <p style="text-align: left; margin-top: 50px;">
+          Assinatura: <br>
+          <img src="ass.jfif" alt="Assinatura Digital">
+        </p>
+        <p style="text-align: left;"><strong>Data e hora: </strong><span id="data-hora"></span></p>
+      </section>
+    </div>
+      <script>
+        function gerarPDF() {
+
+          const element = document.getElementById("container");
+    
+          html2pdf()
+            .from(element)
+            .set({
+              margin: [0.5, 0.5],
+              filename: "exemplo.pdf",
+              image: { type: "jpeg", quality: 0.98 },
+              html2canvas: { dpi: 192, letterRendering: true },
+              jsPDF: { unit: "in", format: "letter", orientation: "portrait" },
+              pagebreak: { mode: ["avoid-all"] },
+            })
+    
+            //Até aqui conigurei o tipo de página
+            .toPdf()
+            .get("pdf")
+    
+            //varro o html para que a pagina fique no tamaho adequado
+            .then(function (pdf) {
+              var totalPages = pdf.internal.getNumberOfPages();
+              for (var i = 1; i <= totalPages; i++) {
+                pdf.setPage(i);
+                pdf.setFontSize(10);
+                pdf.setTextColor(150);
+                if (i > 1) {
+                  pdf.text(570, 820, "Página " + i + " de " + totalPages);
+                }
+              }
+            })
+            .save();
+            alert("PDF gerada com sucesso !")
+        }
+        var dataHora = new Date();
+		    document.getElementById("data-hora").innerHTML = dataHora.toLocaleString();
+
+        function autorizar(){
+          alert("Solicitação Autorizada !")
+          window.location.href = "solicita.html";
+        }
+        function negar(){
+          alert("Solicitação negada !")
+          window.location.href = "solicita.html";
+        }
+        function reavalizar(){
+          alert("Salvo para análise")
+        }
+      </script>
+    </body>
+    </html> 

@@ -4,11 +4,52 @@
 <head>
   <meta charset="UTF-8">
   <title>Solicitação de Compra</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+
   <style>
     body {
       font-family: Arial, sans-serif;
       font-size: 14px;
+      margin-top: 10px;
     }
+    button {
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 10px;
+      padding: 15px 20px;
+      text-align: center;
+      font-size: 16px;
+      display: inline-block;
+      vertical-align: middle;
+      transition: all 0.3s ease;
+      margin-bottom: 20px;
+    }
+    
+    button:hover {
+      background-color: #0056b3;
+    }
+    
+    .button-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      margin-right: 10px;
+      border-radius: 50%;
+      background-color: #fff;
+      color: #007bff;
+      transition: all 0.3s ease;
+    }
+    
+    .button-icon:hover {
+      background-color: #007bff;
+      color: #fff;
+    }
+    
 
     .container {
       max-width: 800px;
@@ -100,17 +141,21 @@
 
 
 <body>
+  <button onclick="window.history.back();">
+    <i class="fas fa-arrow-left"></i> 
+  </button>
   <button onclick="gerarPDF()">Gerar PDF</button>
+  
 
   <div class="container" id="container">
     <div class="header">
-      <img src="https://via.placeholder.com/150x80" alt="Logo">
+      <img src="WhatsApp Image 2023-04-14 at 20.43.59.jpeg" alt="Logo">
       <h1>Solicitação de Compra</h1>
     </div>
     <div class="info">
       <div>
-        <label>Data:</label>
-        <span>01/01/2022</span>
+       
+        <p><strong>Data e Hora:</strong> <span id="data-hora"></span></p>
       </div>
       <div>
         <label>Usuário:</label>
@@ -162,6 +207,16 @@
       <h2>Observações</h2>
       <p><span id="descricao"></span></p>
     </div>
+    <section>
+      <h2>Autorização de Descarga</h2>
+      <p>Eu, abaixo-assinado, essa solicitação.</p>
+      <p style="text-align: left; margin-top: 50px;">
+        Assinatura: <br>
+        <img src="ass.jfif" alt="Assinatura Digital">
+      </p>
+      <p style="text-align: left;"><strong>Data e hora: </strong><span id="data"></span></p>
+    </section>
+   
     <div class="footer">
       <p>ACME Corporation - Rua Principal, 123 - São Paulo - CEP 12345-678 - (11) 1234-5678</p>
     </div>
@@ -173,6 +228,8 @@
 
   <script>
 
+    var dataHora = new Date();
+      document.getElementById("data").innerHTML = dataHora.toLocaleString();
 
     
     function getParametroUrl(nome){
@@ -184,10 +241,10 @@
 		// Preenche os campos com os valores dos parâmetros
 		document.getElementById("produto").innerText = getParametroUrl("produto");
 		document.getElementById("quantidade").innerText = getParametroUrl("quantidade");
-		document.getElementById("preco").innerText = getParametroUrl("preco");
+		document.getElementById("preco").innerText = "R$ "+getParametroUrl("preco");
     document.getElementById("descricao").innerText = getParametroUrl("descricao");
-    document.getElementById("valor").innerText =  getParametroUrl("preco") * getParametroUrl("quantidade");
-    document.getElementById("total").innerText =  getParametroUrl("preco") * getParametroUrl("quantidade");
+    document.getElementById("valor").innerText =  "R$ "+getParametroUrl("preco") * getParametroUrl("quantidade");
+    document.getElementById("total").innerText =  "R$ "+getParametroUrl("preco") * getParametroUrl("quantidade");
 
 
 
@@ -223,7 +280,10 @@
           }
         })
         .save();
+        alert("PDF gerada com sucesso !")
     }
+    var dataHora = new Date();
+		document.getElementById("data-hora").innerHTML = dataHora.toLocaleString();
   </script>
 
 
